@@ -1,0 +1,108 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-slate-950 text-slate-100 font-sans antialiased overflow-x-hidden transition-colors duration-200;
+  }
+
+  body.light {
+    @apply bg-slate-50 text-slate-900;
+  }
+
+  /* High-Contrast Light Theme Color Mappings */
+  body.light .text-slate-100 { color: theme('colors.slate.950') !important; }
+  body.light .text-slate-200 { color: theme('colors.slate.800') !important; }
+  body.light .text-slate-300 { color: theme('colors.slate.700') !important; }
+  body.light .text-slate-400 { color: theme('colors.slate.600') !important; }
+  body.light .text-slate-500 { color: theme('colors.slate.400') !important; }
+  body.light .text-slate-600 { color: theme('colors.slate.500') !important; }
+
+  /* Backgrounds */
+  body.light .bg-slate-900 { background-color: theme('colors.white') !important; }
+  body.light .bg-slate-950 { background-color: theme('colors.slate.50') !important; }
+  body.light .bg-white\/5 { @apply bg-slate-200/60 !important; }
+  body.light .bg-white\/10 { background-color: theme('colors.slate.200') !important; }
+  body.light .bg-slate-900\/60 { background-color: theme('colors.white') !important; }
+  body.light .bg-slate-900\/40 { background-color: theme('colors.white') !important; }
+  body.light .bg-slate-900\/50 { background-color: theme('colors.white') !important; }
+  body.light .bg-slate-950\/60 { background-color: rgba(15, 23, 42, 0.3) !important; }
+  body.light .bg-slate-950\/80 { background-color: rgba(255, 255, 255, 0.95) !important; }
+
+  /* Hovers */
+  body.light .hover\:bg-white\/5:hover { @apply bg-slate-200/60 !important; }
+  body.light .hover\:bg-white\/10:hover { background-color: theme('colors.slate.200') !important; }
+  body.light .hover\:text-white:hover { color: theme('colors.slate.950') !important; }
+  body.light .hover\:text-slate-200:hover { color: theme('colors.slate.900') !important; }
+
+  /* Borders */
+  body.light .border-white\/10 { border-color: theme('colors.slate.200') !important; }
+  body.light .border-white\/5 { border-color: theme('colors.slate.200') !important; }
+  body.light .border-slate-800 { border-color: theme('colors.slate.200') !important; }
+  body.light .border-slate-700 { border-color: theme('colors.slate.300') !important; }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-slate-900/50 backdrop-blur-md border border-white/10;
+  }
+  
+  .light .glass {
+    @apply bg-white/70 backdrop-blur-md border border-slate-200/80;
+  }
+
+  .glass-card {
+    @apply bg-slate-900/40 backdrop-blur-md border border-white/10 rounded-2xl hover:border-brand-500/30 transition-all duration-300;
+  }
+
+  .light .glass-card {
+    @apply bg-white/60 backdrop-blur-md border border-slate-200/80 rounded-2xl hover:border-brand-500/20 transition-all duration-300;
+  }
+
+  .glass-input {
+    @apply bg-slate-900/60 border border-white/10 rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-brand-500 transition-all duration-200 text-slate-100 placeholder-slate-500;
+  }
+
+  .light .glass-input {
+    @apply bg-white/80 border border-slate-200 rounded-xl px-4 py-2 text-sm focus:outline-none focus:border-brand-500 transition-all duration-200 text-slate-800 placeholder-slate-400;
+  }
+  
+  .glass-panel {
+    @apply bg-slate-950/80 backdrop-blur-lg border-l border-white/10;
+  }
+
+  .light .glass-panel {
+    @apply bg-white/90 backdrop-blur-lg border-l border-slate-200;
+  }
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-slate-800 rounded-full hover:bg-slate-700 transition-all;
+}
+
+.light ::-webkit-scrollbar-thumb {
+  @apply bg-slate-300 rounded-full hover:bg-slate-400 transition-all;
+}
+
+/* Hide Default Calendar Icon */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.8);
+  cursor: pointer;
+}
+
+.light input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(0.2);
+}
